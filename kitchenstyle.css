@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kitchen-panel {
+  background-color: #895129;
+  width: 800px;
+  height: 90vh;
+  display: flex;
+  border-radius: 20px;
+  flex-direction: column;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+
+  align-items: center;
+}
+.orders {
+  background-color: rgb(131, 96, 52);
+
+  gap: 20px;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  border-radius: 20px;
+  flex-direction: column;
+  overflow-y: auto;
+}

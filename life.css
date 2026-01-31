@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+.order-panel {
+  background-color: #864e2d;
+  position: fixed;
+  width: 450px;
+  height: 90vh;
+  left: 50px;
+  top: 50px;
+  border-radius: 20px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+.order-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.order-items {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background-color: #6d3d21;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+.total-bill {
+  margin-top: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+.ord-btn {
+  border-radius: 10px;
+  border: none;
+  width: 200px;
+  height: 30px;
+  margin-left: 80px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.ord-btn:hover {
+  background-color: green;
+}
+.order-panel .order-id {
+  padding: 20px;
+  background-color: #67391f;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-color: rgb(127, 86, 86) transparent;
+  border-radius: 20px;
+}
+.order-panel h1 {
+  text-align: center;
+  color: whitesmoke;
+  padding: 20px;
+}
+.order-panel h2 {
+  color: rgba(245, 245, 245, 0.922);
+  text-align: center;
+  padding: 10px;
+}
+.order-panel .order-ready {
+  background-color: #ffffff43;
+  border-radius: 10px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  scrollbar-color: rgb(127, 86, 86) transparent;
+}
+
+.order-panel label {
+  color: #fffefe;
+  font-weight: bold;
+}
+.order-panel input {
+  outline: none;
+  cursor: text;
+  height: 40px;
+  padding: 0 14px;
+  font-size: 15px;
+  background-color: #6d3d21;
+  border-radius: 10px;
+  margin-left: 10px;
+  border: 3px solid rgba(255, 255, 255, 0.612);
+  color: white;
+}
+.order-panel input::placeholder {
+  color: white;
+}
+.container {
+  position: absolute;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  gap: 20px;
+  padding: 50px;
+  margin-left: 500px;
+}
+.c-one {
+  background-color: #4b2e2bd4;
+  width: 900px;
+  height: 100vh;
+  border-radius: 30px;
+
+  scroll-snap-align: center;
+  flex: 0 0 90%;
+
+  flex-shrink: 0;
+  display: grid;
+  padding: 2rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.c-item {
+  background-color: #fff6ee;
+  padding: 1rem;
+
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  border-radius: 10px;
+}
+
+.c-item:hover {
+  box-shadow: 0 15px 15px rgb(0, 0, 0);
+  transform: translateY(-8px);
+}
+
+.item-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.item-info {
+  flex-grow: 1;
+  text-align: center;
+  color: #2b2b2b;
+}
+
+.price {
+  font-weight: bold;
+  color: #2e7d32;
+  font-size: 18px;
+}
+
+.button {
+  background-color: #864e2d;
+  color: white;
+  font-weight: bold;
+  width: 60px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.indec-button {
+  background-color: #864e2d;
+  color: white;
+  font-weight: bold;
+  width: 60px;
+  height: 50px;
+
+  border-radius: 10px;
+  border: none;
+
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.indec-button .minus {
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  background-color: #864e2d;
+  border-radius: 10px;
+}
+.indec-button .minus:hover {
+  background-color: rgba(255, 255, 255, 0.39);
+}
+
+.indec-button .plus {
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  background-color: #864e2d;
+  border-radius: 10px;
+}
+.indec-button .plus:hover {
+  background-color: rgba(255, 255, 255, 0.39);
+}
+
+.button:hover {
+  background-color: #5d3721;
+}

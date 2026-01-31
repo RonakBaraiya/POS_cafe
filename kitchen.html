@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='kitchenstyle.css') }}"
+    />
+  </head>
+  <body>
+    <div class="kitchen-panel">
+      <h1>ORDERS</h1>
+      <div class="orders">
+        <!-- order cards will come here -->
+      </div>
+      <hr />
+    </div>
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='kitchen.js') }}"></script>
+  </body>
+</html>

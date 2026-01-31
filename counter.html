@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name ="viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Counter Page</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='life.css')}}" />
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="{{url_for('static', filename='speak.js')}}" defer></script>
+  </head>
+  <body>
+    
+    <!--ORDER PANEL-->
+    <div class="order-panel">
+      <h1>- Order List -</h1>
+      <div class="order-id">
+        <label>Order No : </label>
+        <input type="text" placeholder=" Enter Order Id " />
+        <hr>
+        <div class="order-items" > 
+          
+        </div>        <!--js will also append here--><hr>
+        <div class= "total-bill">Bill : $0</div>
+        <button type="button" class="ord-btn">Place Order</button>
+      </div>
+      <h2>- Order Ready -</h2>
+      <div class="order-ready">
+        <!--JS will append item ready fter kitchen response (order id - ready) -->
+
+      </div>
+    </div>
+    <div class="container">
+      <!--PLace the c containers here inside main flex display  here-->
+      <h1>Coffee</h1>
+      <div class="c-one">
+        <div class="c-item" data-id="1">
+          <img src="{{url_for('static', filename="images/latte.jpg")}}"
+          alt="Latte" class="item-img" />
+          <div class="item-info">
+            <h3>Latte</h3>
+          </div>
+          <span class="price">$4.99</span>
+
+          <div class="btn-container" data-id="1">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="1">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="2">
+          <img src="{{url_for('static', filename="images/espresso.jpg")}}"
+          alt="espresso" class="item-img" />
+          <div class="item-info">
+            <h3>Espresso</h3>
+          </div>
+          <span class="price">$6.00</span>
+          <div class="btn-container" data-id="2">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="2">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="3">
+          <img src="{{url_for('static', filename="images/cappuccino.png")}}"
+          alt="cappuccino" class="item-img" />
+          <div class="item-info">
+            <h3>Cappuccino</h3>
+          </div>
+          <span class="price">$8.00</span>
+          <div class="btn-container" data-id="3">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="3">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="4">
+          <img src="{{url_for('static', filename="images/flatwhite.png")}}"
+          alt="flatwhite" class="item-img" />
+          <div class="item-info">
+            <h3>Flat White</h3>
+          </div>
+          <span class="price">$7.99</span>
+          <div class="btn-container" data-id="4">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="4">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="5">
+          <img src="{{url_for('static', filename="images/cortado.jpg")}}"
+          alt="cortado" class="item-img" />
+          <div class="item-info">
+            <h3>Cortado</h3>
+          </div>
+          <span class="price">$4.00</span>
+          <div class="btn-container" data-id="5">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="5">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="6">
+          <img src="{{url_for('static', filename="images/ristretto.jpg")}}"
+          alt="ristretto" class="item-img" />
+          <div class="item-info">
+            <h3>Ristretto</h3>
+          </div>
+          <span class="price">$7.00</span>
+          <div class="btn-container" data-id="6">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="6">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="7">
+          <img src="{{url_for('static', filename="images/affogato.jpg")}}"
+          alt="affogato" class="item-img" />
+          <div class="item-info">
+            <h3>Affogato</h3>
+          </div>
+          <span class="price">$9.00</span>
+          <div class="btn-container" data-id="7">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="7">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="8">
+          <img src="{{url_for('static', filename="images/blackcoffee.jpg")}}"
+          alt="blackcoffee" class="item-img" />
+          <div class="item-info">
+            <h3>Black Coffee</h3>
+          </div>
+          <span class="price">$10.00</span>
+          <div class="btn-container" data-id="8">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="8">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="9">
+          <img src="{{url_for('static', filename="images/icedcoffee.jpg")}}"
+          alt="icedcoffee" class="item-img" />
+          <div class="item-info">
+            <h3>Iced Coffee</h3>
+          </div>
+          <span class="price">$7.00</span>
+          <div class="btn-container" data-id="9">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="9">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h1>Snacks</h1>
+      <!--c-two-->
+      <div class="c-one">
+        <div class="c-item" id="10">
+          <img src="{{url_for('static', filename="images/biscotti.png")}}"
+          alt="biscotti" class="item-img" />
+          <div class="item-info">
+            <h3>Biscotti</h3>
+          </div>
+          <span class="price">$1.50</span>
+          <div class="btn-container" data-id="10">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="10">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="11">
+          <img src="{{url_for('static', filename="images/scone.png")}}"
+          alt="scone" class="item-img" />
+          <div class="item-info">
+            <h3>Scone</h3>
+          </div>
+          <span class="price">$3.25</span>
+          <div class="btn-container" data-id="11">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="11">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="12">
+          <img src="{{url_for('static', filename="images/brownie.png")}}"
+          alt="brownie" class="item-img" />
+          <div class="item-info">
+            <h3>Brownie</h3>
+          </div>
+          <span class="price">$2.75</span>
+          <div class="btn-container" data-id="12">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="12">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="13">
+          <img src="{{url_for('static', filename="images/muffin.png")}}"
+          alt="muffin" class="item-img" />
+          <div class="item-info">
+            <h3>Muffin</h3>
+          </div>
+          <span class="price">$3.50</span>
+          <div class="btn-container" data-id="13">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="13">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="14">
+          <img src="{{url_for('static', filename="images/donut.png")}}"
+          alt="donut" class="item-img" />
+          <div class="item-info">
+            <h3>Donut</h3>
+          </div>
+          <span class="price">$1.25</span>
+          <div class="btn-container" data-id="14">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="14">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="15">
+          <img src="{{url_for('static', filename="images/cookie.jpg")}}"
+          alt="cookie" class="item-img" />
+          <div class="item-info">
+            <h3>Cookie</h3>
+          </div>
+          <span class="price">$0.75</span>
+          <div class="btn-container" data-id="15">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="15">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="16">
+          <img src="{{url_for('static', filename="images/cannoli.png")}}"
+          alt="cannoli" class="item-img" />
+          <div class="item-info">
+            <h3>Cannoli</h3>
+          </div>
+          <span class="price">$4.00</span>
+          <div class="btn-container" data-id="16">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="16">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="17">
+          <img src="{{url_for('static', filename="images/danish.png")}}"
+          alt="danish" class="item-img" />
+          <div class="item-info">
+            <h3>Danish</h3>
+          </div>
+          <span class="price">$3.75</span>
+          <div class="btn-container" data-id="17">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="17">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-item" id="18">
+          <img src="{{url_for('static', filename="images/eclair.png")}}"
+          alt="eclair" class="item-img" />
+          <div class="item-info">
+            <h3>Eclair</h3>
+          </div>
+          <span class="price">$4.50</span>
+          <div class="btn-container" data-id="18">
+            <!--Add button by default-->
+            <button type="button" class="button" data-id="18">Add</button>
+            <!--indec-button-->
+            <div class="indec-button">
+              <button class="minus">-</button>
+              <span class="qty">1</span>
+              <button class="plus">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

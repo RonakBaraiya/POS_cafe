@@ -1,0 +1,20 @@
+<!--Main UI-->
+<!doctype html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='auth.css') }}"
+    />
+  </head>
+  <body>
+    <div class="login-panel">
+      <h1>Login As:</h1>
+      <div class="buttons">
+        <button class="counter-btn">Counter Staff</button>
+        <button class="kitchen-btn">Kitchen Staff</button>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='auth.js') }}"></script>
+  </body>
+</html>
